@@ -15,7 +15,7 @@ export default function ScheduleCard() {
         <p className="text-[11px] font-semibold uppercase tracking-wide opacity-80">
           Thu
         </p>
-        <p className="text-2xl font-bold leading-tight">4 Jan</p>
+        <p className="text-2xl font-bold">4 Jan</p>
       </div>
 
       {/* Schedule items */}

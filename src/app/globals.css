@@ -11,7 +11,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-serif: var(--font-instrument-serif);
-  --font-sans: var(--font-dm-sans);
+  --font-sans: var(--font-inter);
 }
 
 body {
@@ -24,4 +24,9 @@ body {
     40px 40px,
     100% 100%;
   color: var(--foreground);
+}
+
+/* Body text: 14px with 20px line-height (best practice for readability) */
+.text-sm {
+  line-height: 20px;
 }

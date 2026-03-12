@@ -43,12 +43,13 @@ export default function Home() {
         {...slideIn(-60, -40, 0.15)}
       >
         <VinylCard
-          songTitle="Idealism"
+          songTitle="Nagashi"
           artist="Idealism"
           currentTime="2:14"
           totalTime="4:08"
           progress={0.54}
           artworkSrc="/idealism.png"
+          audioSrc="/Idealism-nagashi.mp3"
         />
       </motion.div>
 
@@ -60,12 +61,12 @@ export default function Home() {
         <MapCard />
       </motion.div>
 
-      {/* ---- "Tiny room" badge ---- */}
+      {/* ---- Status badge ---- */}
       <motion.div className="absolute top-[32%] left-[28%]" {...fade(0.5)}>
         <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-sm">
           <span className="h-2 w-2 rounded-full bg-green-500" />
           <span className="text-xs font-medium text-foreground">
-            Tiny room (8)
+            currently designing
           </span>
         </div>
       </motion.div>
@@ -83,7 +84,17 @@ export default function Home() {
         className="absolute top-[35%] right-[4%] rotate-2"
         {...slideIn(60, 0, 0.3)}
       >
-        <VinylCard />
+        <VinylCard
+          songTitle="Let Down"
+          artist="Radiohead"
+          currentTime="3:41"
+          totalTime="4:59"
+          progress={221 / 299}
+          artworkSrc="/radiohead-letdown.png"
+          audioSrc="/Let Down (Remastered).mp3"
+          startTimeSeconds={221.2}
+          volume={0.22}
+        />
       </motion.div>
 
       {/* ---- Bottom-left: Folder stack ---- */}
