@@ -111,8 +111,8 @@ export default function VinylCard({
   // 3D tilt — driven by mouse on hover, or gentle circular sway while playing
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
-  const TILT_MAX = 6;
-  const SWAY_AMOUNT = 0.4; // how far from center the sway goes (0–0.5)
+  const TILT_MAX = 4;
+  const SWAY_AMOUNT = 0.25; // how far from center the sway goes (0–0.5)
   const SWAY_SPEED = 0.0015; // radians per ms (≈ one full circle every ~6.3s)
   const tiltX = useTransform(mouseY, (v) => (0.5 - v) * 2 * TILT_MAX);
   const tiltY = useTransform(mouseX, (v) => (v - 0.5) * 2 * TILT_MAX);
@@ -213,7 +213,7 @@ export default function VinylCard({
     <div style={{ perspective: 1000 }}>
       <motion.div
         ref={cardRef}
-        className="relative flex w-full max-w-[min(100%,200px)] cursor-pointer flex-col items-center gap-2 overflow-visible rounded-[16px] border border-[#dedede] bg-white p-4 font-sans"
+        className="relative flex w-fit cursor-pointer flex-col items-center gap-2 overflow-visible rounded-[16px] border border-[#dedede] bg-white p-4 font-sans"
         style={{ rotateX: springTiltX, rotateY: springTiltY }}
         initial={{ y: 0, boxShadow: "4px 4px 15px 0 rgb(101 63 16 / 0)" }}
         animate={
@@ -280,7 +280,7 @@ export default function VinylCard({
 
         {/* Vinyl Record — 160×160 per Figma */}
         <motion.div
-          className="relative h-[168px] w-[168px] shrink-0"
+          className="relative h-[185px] w-[185px] shrink-0"
           animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
           transition={
             isPlaying
@@ -295,7 +295,7 @@ export default function VinylCard({
             className="object-cover"
           />
           {artworkSrc && (
-            <div className="absolute left-1/2 top-1/2 h-[50px] w-[50px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full">
+            <div className="absolute left-1/2 top-1/2 h-[58px] w-[58px] -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full">
               <Image
                 src={artworkSrc}
                 alt="Album artwork"
@@ -342,7 +342,7 @@ export default function VinylCard({
 
         {/* Song info + progress — gap-3 (12px) between text block and bar per Figma */}
         <div className="flex w-full shrink-0 flex-col items-center gap-3">
-          <div className="flex w-full flex-col items-center gap-0.5 mt-0.5 text-center">
+          <div className="flex w-full flex-col items-center gap-0.5 text-center">
             <p
               className="w-full text-[14px] font-medium leading-[20px] text-[#1e1e1e]"
               style={{ fontVariationSettings: "'opsz' 14" }}

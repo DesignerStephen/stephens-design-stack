@@ -5,7 +5,9 @@ import ScheduleCard from "@/components/ScheduleCard";
 import MapCard from "@/components/MapCard";
 import FolderStack from "@/components/FolderStack";
 import EventCard from "@/components/EventCard";
+import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const fade = (delay: number) => ({
   initial: { opacity: 0, scale: 0.92 },
@@ -28,6 +30,14 @@ const popIn = (delay: number) => ({
 export default function Home() {
   return (
     <main className="relative min-h-screen overflow-hidden px-8">
+      {/* Centered Spline object */}
+      <motion.div
+        className="absolute top-[20%] left-[25%] -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px]"
+        {...slideIn(-60, -40, 0.18)}
+      >
+        <Spline scene="https://prod.spline.design/lw590hsPyqDRUdNY/scene.splinecode" />
+      </motion.div>
+
       {/* Centered title */}
       <motion.h1
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap font-serif text-5xl tracking-tight"
@@ -68,6 +78,25 @@ export default function Home() {
           <span className="text-xs font-medium text-foreground">
             currently designing
           </span>
+        </div>
+      </motion.div>
+
+      {/* ---- Matcha drink ---- */}
+      <motion.div
+        className="absolute top-[2%] right-[20%] rotate-3"
+        {...slideIn(0, -40, 0.18)}
+        whileHover={{ scale: 1.1, rotate: 5 }}
+        whileTap={{ scale: 0.9, rotate: 10, transition: { type: "tween", duration: 0.15 } }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        <div className="w-[160px] h-[280px] overflow-hidden">
+          <Image
+            src="/iced-matcha.png"
+            alt="Iced matcha"
+            width={260}
+            height={340}
+            className="drop-shadow-sm object-cover h-full w-auto mx-auto"
+          />
         </div>
       </motion.div>
 
