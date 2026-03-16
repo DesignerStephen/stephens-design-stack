@@ -12,7 +12,7 @@ export default function ScheduleCard() {
     >
       {/* Date header */}
       <div className="px-4 pt-4 pb-3">
-        <p className="text-[11px] font-semibold uppercase tracking-wide opacity-80">
+        <p className="text-[10px] font-semibold uppercase tracking-wide opacity-80">
           Thu
         </p>
         <p className="text-2xl font-bold">4 Jan</p>

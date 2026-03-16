@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { MapPin } from "@phosphor-icons/react";
 import Image from "next/image";
 
 export default function MapCard() {
@@ -30,17 +31,15 @@ export default function MapCard() {
       </div>
 
       {/* Bottom info card */}
-      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl bg-white px-5 py-4 shadow-lg">
+      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl bg-white px-5 py-4">
         <div>
-          <p className="text-[13px] text-gray-400">Current location</p>
-          <p className="text-[17px] font-semibold text-gray-900">
+          <p className="text-xs text-secondary">Current location</p>
+          <p className="text-lg font-semibold text-primary">
             Sydney, Australia
           </p>
         </div>
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#3478F6]">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 010-5 2.5 2.5 0 010 5z" />
-          </svg>
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#4A8FF7]">
+          <MapPin size={22} color="white" weight="fill" />
         </div>
       </div>
     </motion.div>

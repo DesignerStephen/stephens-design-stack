@@ -213,7 +213,7 @@ export default function VinylCard({
     <div style={{ perspective: 1000 }}>
       <motion.div
         ref={cardRef}
-        className="relative flex w-fit cursor-pointer flex-col items-center gap-2 overflow-visible rounded-[16px] border border-[#dedede] bg-white p-4 font-sans"
+        className="relative flex w-fit cursor-pointer flex-col items-center gap-2 overflow-visible rounded-2xl border border-[#dedede] bg-white p-4 font-sans"
         style={{ rotateX: springTiltX, rotateY: springTiltY }}
         initial={{ y: 0, boxShadow: "4px 4px 15px 0 rgb(101 63 16 / 0)" }}
         animate={
@@ -251,7 +251,7 @@ export default function VinylCard({
           {noteConfig.map(({ offset: [xEnd, yEnd], delay }, i) => (
             <motion.span
               key={i}
-              className="absolute left-0 top-0 text-lg leading-none text-[#1e1e1e]"
+              className="absolute left-0 top-0 text-lg leading-none text-primary"
               initial={{ opacity: 0, x: 0, y: 0 }}
               animate={
                 isPlaying
@@ -343,16 +343,10 @@ export default function VinylCard({
         {/* Song info + progress — gap-3 (12px) between text block and bar per Figma */}
         <div className="flex w-full shrink-0 flex-col items-center gap-3">
           <div className="flex w-full flex-col items-center gap-0.5 text-center">
-            <p
-              className="w-full text-[14px] font-medium leading-[20px] text-[#1e1e1e]"
-              style={{ fontVariationSettings: "'opsz' 14" }}
-            >
+            <p className="w-full text-sm font-medium text-primary">
               {songTitle}
             </p>
-            <p
-              className="w-full text-[12px] font-normal leading-[16px] text-[#757575]"
-              style={{ fontVariationSettings: "'opsz' 14" }}
-            >
+            <p className="w-full text-xs font-normal text-secondary">
               {artist}
             </p>
           </div>
@@ -382,15 +376,15 @@ export default function VinylCard({
           })()}
 
           {/* Timestamps — flip-clock digits tick once per actual second */}
-          <div className="flex items-center justify-center gap-[6px] whitespace-nowrap text-center text-[12px] font-normal leading-[16px] tabular-nums">
-            <span className="text-[#1e1e1e]">
+          <div className="flex items-center justify-center gap-[6px] whitespace-nowrap text-center text-xs font-normal tabular-nums">
+            <span className="text-primary">
               <FlipTime
                 value={formatTime(Math.floor(currentTimeSec))}
-                className="text-[12px] font-normal text-[#1e1e1e]"
+                className="text-xs font-normal text-primary"
               />
             </span>
-            <span className="text-[#1e1e1e]">/</span>
-            <span className="text-[#757575]">
+            <span className="text-primary">/</span>
+            <span className="text-secondary">
               <FlipTime
                 value={formatTime(
                   durationSec ??
@@ -399,7 +393,7 @@ export default function VinylCard({
                       return (m ?? 0) * 60 + (s ?? 0);
                     })(),
                 )}
-                className="text-[12px] font-normal text-[#757575]"
+                className="text-xs font-normal text-secondary"
               />
             </span>
           </div>

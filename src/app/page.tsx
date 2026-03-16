@@ -5,6 +5,7 @@ import ScheduleCard from "@/components/ScheduleCard";
 import MapCard from "@/components/MapCard";
 import FolderStack from "@/components/FolderStack";
 import EventCard from "@/components/EventCard";
+import Logo from "@/components/Logo";
 import Spline from "@splinetool/react-spline";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -75,7 +76,7 @@ export default function Home() {
       <motion.div className="absolute top-[32%] left-[28%]" {...fade(0.5)}>
         <div className="flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 shadow-sm">
           <span className="h-2 w-2 rounded-full bg-green-500" />
-          <span className="text-xs font-medium text-foreground">
+          <span className="text-xs font-medium text-primary">
             currently designing
           </span>
         </div>
@@ -142,9 +143,16 @@ export default function Home() {
         <EventCard />
       </motion.div>
 
+      {/* ---- Figma Logo ---- */}
+      <motion.div
+        className="absolute top-[18%] right-[22%] rotate-12"
+        {...popIn(0.55)}
+      >
+        <Logo />
+      </motion.div>
+
       {/* ---- Decorative squares scattered around ---- */}
       {[
-        "absolute top-[18%] right-[22%] rotate-12",
         "absolute top-[55%] right-[30%] -rotate-6",
         "absolute top-[28%] left-[50%] rotate-45",
         "absolute bottom-[20%] left-[35%] rotate-12",
@@ -154,7 +162,7 @@ export default function Home() {
           key={i}
           className={`h-6 w-6 rounded-md ${cls}`}
           style={{ backgroundColor: "#c4d430" }}
-          {...popIn(0.55 + i * 0.07)}
+          {...popIn(0.62 + i * 0.07)}
         />
       ))}
     </main>
